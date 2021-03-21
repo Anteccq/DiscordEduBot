@@ -43,7 +43,7 @@ namespace DiscordEduBot
             await _client.StopAsync();
         }
 
-        public async Task MessageHandle(SocketMessage message)
+        private async Task MessageHandle(SocketMessage message)
         {
             if (message is SocketUserMessage || message.Author.IsBot) return;
             await message.Channel.SendMessageAsync(
