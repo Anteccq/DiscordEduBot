@@ -45,9 +45,9 @@ namespace DiscordEduBot
 
         private async Task MessageHandle(SocketMessage message)
         {
-            if (message is SocketUserMessage || message.Author.IsBot) return;
-            await message.Channel.SendMessageAsync(
-                $"ここは、サーバー{(message.Channel is IGuildChannel ? "です" : "ではありません")}");
+            if (!(message is SocketUserMessage msg) || msg.Author.IsBot) return;
+            await msg.Channel.SendMessageAsync(
+                $"ここは、サーバー{(msg.Channel is IGuildChannel ? "です" : "ではありません")}");
         }
     }
 }
